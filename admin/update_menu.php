@@ -152,6 +152,13 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                         <li> <a href="dashboard.php"><i class="fa fa-tachometer"></i><span>Dashboard</span></a></li>
                         <li class="nav-label">Log</li>
                         <li> <a href="all_users.php">  <span><i class="fa fa-user f-s-20 "></i></span><span>Users</span></a></li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_restaurant.php">All Restaurants</a></li>
+								<li><a href="add_category.php">Add Category</a></li>
+                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
+                                
+                            </ul>
                         </li>
                       <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -187,7 +194,7 @@ if(isset($_POST['submit']))           //if upload btn is pressed
 					    <div class="col-lg-12">
                         <div class="card card-outline-primary">
                             <div class="card-header">
-                                <h4 class="m-b-0 text-white">Add Menu</h4>
+                                <h4 class="m-b-0 text-white">Add Menu to Restaurant</h4>
                             </div>
                             <div class="card-body">
                                 <form action='' method='post'  enctype="multipart/form-data">
@@ -228,6 +235,37 @@ if(isset($_POST['submit']))           //if upload btn is pressed
                                                     <input type="file" name="file"  id="lastName" class="form-control form-control-danger" placeholder="12n">
                                                     </div>
                                             </div>
+                                        </div>
+                                    
+										
+                                
+                                        <div class="row">
+                                            
+											
+											
+											
+											
+											
+											
+											 <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="control-label">Select Category</label>
+													<select name="res_name" class="form-control custom-select" data-placeholder="Choose a Category" tabindex="1">
+                                                        <option>--Select Restaurant--</option>
+                                                 <?php $ssql ="select * from restaurant";
+													$res=mysqli_query($db, $ssql); 
+													while($row=mysqli_fetch_array($res))  
+													{
+                                                       echo' <option value="'.$row['rs_id'].'">'.$row['title'].'</option>';;
+													}  
+                                                 
+													?> 
+													 </select>
+                                                </div>
+                                            </div>
+											
+											
+											
                                         </div>
                                      
                                         </div>

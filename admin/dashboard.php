@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <?php
@@ -75,6 +74,13 @@ else
                         </li>
                         <li class="nav-label">Log</li>
                         <li> <a href="all_users.php">  <span><i class="fa fa-user f-s-20 "></i></span><span>Users</span></a></li>
+                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-archive f-s-20 color-warning"></i><span class="hide-menu">Restaurant</span></a>
+                            <ul aria-expanded="false" class="collapse">
+								<li><a href="all_restaurant.php">All Restaurant</a></li>
+								<li><a href="add_category.php">Add Category</a></li>
+                                <li><a href="add_restaurant.php">Add Restaurant</a></li>
+                                
+                            </ul>
                         </li>
                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-cutlery" aria-hidden="true"></i><span class="hide-menu">Menu</span></a>
                             <ul aria-expanded="false" class="collapse">
@@ -110,6 +116,14 @@ else
                             <div class="media">
                                 <div class="media-left meida media-middle">
                                     <span><i class="fa fa-home f-s-40 "></i></span>
+                                </div>
+                                <div class="media-body media-text-right">
+                                    <h2><?php $sql="select * from restaurant";
+												$result=mysqli_query($db,$sql); 
+													$rws=mysqli_num_rows($result);
+													
+													echo $rws;?></h2>
+                                    <p class="m-b-0">Restaurants</p>
                                 </div>
                             </div>
                         </div>
